@@ -24,7 +24,7 @@ export default function Home() {
   const [query, setQuery] = useState<string>("$.staff_members[*].name")
   const [copied, setCopied] = useState(false)
 
-  // 计算匹配结果
+  // Compute matching results
   const result = useMemo(() => {
     let parsed
     try {
@@ -43,12 +43,12 @@ export default function Home() {
         queryError: null,
       }
     } catch (e) {
-      // JSONPath 表达式无效时，仍显示 JSON 树，但无匹配
+      // When JSONPath expression is invalid, still display the JSON tree but with no matches
       return { parsed, matchedPaths: [], matchedValues: [], error: null, queryError: (e as Error).message }
     }
   }, [jsonInput, query])
 
-  // 复制为 CSV
+  // Copy as CSV
   const copyAsCsv = useCallback(() => {
     if (result.matchedValues.length === 0) return
 
@@ -72,7 +72,7 @@ export default function Home() {
 
   return (
     <div className="h-full flex gap-4">
-      {/* 左侧输入面板 - 40% */}
+      {/* Left input panel - 40% */}
       <div className="w-2/5 flex flex-col gap-4">
         <div className="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden flex-1 flex flex-col">
           <div className="bg-slate-50 px-4 py-2 border-b border-slate-200">
@@ -109,7 +109,7 @@ export default function Home() {
         </div>
       </div>
 
-      {/* 右侧可视化面板 - 60% */}
+      {/* Right visualisation panel - 60% */}
       <div className="w-3/5 bg-white rounded-xl shadow-sm border border-slate-200 flex flex-col overflow-hidden">
         <div className="bg-slate-50 px-4 py-2 border-b border-slate-200 flex justify-between items-center">
           <span className="text-xs font-semibold uppercase tracking-wider text-slate-500">
