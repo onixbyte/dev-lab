@@ -26,17 +26,25 @@ export default function Home() {
 
   // 计算匹配结果
   const result = useMemo(() => {
+    let parsed
     try {
-      const parsed = JSON.parse(jsonInput)
+      parsed = JSON.parse(jsonInput)
+    } catch (e) {
+      return { parsed: null, matchedPaths: [], matchedValues: [], error: (e as Error).message, queryError: null }
+    }
+
+    try {
       const nodes = jp.nodes(parsed, query)
       return {
         parsed,
         matchedPaths: nodes.map((n) => jp.stringify(n.path)),
         matchedValues: nodes.map((n) => n.value),
         error: null,
+        queryError: null,
       }
     } catch (e) {
-      return { parsed: null, matchedPaths: [], matchedValues: [], error: (e as Error).message }
+      // JSONPath 表达式无效时，仍显示 JSON 树，但无匹配
+      return { parsed, matchedPaths: [], matchedValues: [], error: null, queryError: (e as Error).message }
     }
   }, [jsonInput, query])
 
@@ -81,12 +89,19 @@ export default function Home() {
         </div>
 
         <div className="bg-white rounded-xl shadow-sm border border-slate-200 p-4">
-          <label className="block text-xs font-semibold uppercase tracking-wider text-slate-500 mb-2">
-            JSONPath Expression
+          <label className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider mb-2">
+            <span className="text-slate-500">JSONPath Expression</span>
+            {result.queryError && (
+              <span className="text-red-500 normal-case">— Invalid syntax</span>
+            )}
           </label>
           <input
             type="text"
-            className="w-full p-3 font-mono text-sm border border-slate-200 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition-all shadow-sm"
+            className={`w-full p-3 font-mono text-sm border rounded-lg focus:ring-2 outline-none transition-all shadow-sm ${
+              result.queryError
+                ? "border-red-300 focus:ring-red-500 focus:border-red-500"
+                : "border-slate-200 focus:ring-indigo-500 focus:border-indigo-500"
+            }`}
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder="e.g. $..roles"
