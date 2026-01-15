@@ -71,24 +71,26 @@ export default function Home() {
   }, [query, result.matchedValues])
 
   return (
-    <div className="h-full flex gap-4">
-      {/* Left input panel - 40% */}
-      <div className="w-2/5 flex flex-col gap-4">
-        <div className="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden flex-1 flex flex-col">
-          <div className="bg-slate-50 px-4 py-2 border-b border-slate-200">
+    <div className="h-full flex gap-4 overflow-hidden">
+      {/* Left panel - 30% */}
+      <div className="w-[30%] flex flex-col gap-4 min-h-0">
+        {/* JSON Source - fills remaining height */}
+        <div className="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden flex-1 flex flex-col min-h-0">
+          <div className="bg-slate-50 px-4 py-2 border-b border-slate-200 shrink-0">
             <span className="text-xs font-semibold uppercase tracking-wider text-slate-500">
               JSON Source
             </span>
           </div>
           <textarea
-            className="flex-1 w-full p-4 font-mono text-sm outline-none focus:ring-2 focus:ring-indigo-500/20 transition-all resize-none"
+            className="flex-1 w-full p-4 font-mono text-sm outline-none focus:ring-2 focus:ring-indigo-500/20 transition-all resize-none overflow-auto"
             value={jsonInput}
             onChange={(e) => setJsonInput(e.target.value)}
             spellCheck={false}
           />
         </div>
 
-        <div className="bg-white rounded-xl shadow-sm border border-slate-200 p-4">
+        {/* JSONPath Expression - fixed height */}
+        <div className="bg-white rounded-xl shadow-sm border border-slate-200 p-4 shrink-0">
           <label className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider mb-2">
             <span className="text-slate-500">JSONPath Expression</span>
             {result.queryError && (
@@ -109,9 +111,9 @@ export default function Home() {
         </div>
       </div>
 
-      {/* Right visualisation panel - 60% */}
-      <div className="w-3/5 bg-white rounded-xl shadow-sm border border-slate-200 flex flex-col overflow-hidden">
-        <div className="bg-slate-50 px-4 py-2 border-b border-slate-200 flex justify-between items-center">
+      {/* Right visualisation panel - 70% */}
+      <div className="w-[70%] bg-white rounded-xl shadow-sm border border-slate-200 flex flex-col overflow-hidden min-h-0">
+        <div className="bg-slate-50 px-4 py-2 border-b border-slate-200 flex justify-between items-center shrink-0">
           <span className="text-xs font-semibold uppercase tracking-wider text-slate-500">
             Visualised Result
           </span>
@@ -129,12 +131,13 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="flex-1 p-6 overflow-auto font-mono text-sm leading-relaxed">
-          {result.error ? (
-            <div className="bg-red-50 text-red-600 p-4 rounded-lg border border-red-100 text-xs">
+        <div className="flex-1 p-6 overflow-auto font-mono text-sm leading-relaxed min-h-0">
+          {result.error && (
+            <div className="bg-red-50 text-red-600 p-4 rounded-lg border border-red-100 text-xs mb-4">
               <strong>Error:</strong> {result.error}
             </div>
-          ) : (
+          )}
+          {result.parsed && (
             <JsonTreeNode
               data={result.parsed}
               path={["$"]}

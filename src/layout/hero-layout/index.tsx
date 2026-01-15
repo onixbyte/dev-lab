@@ -10,7 +10,7 @@ export default function HeroLayout() {
   const today = useMemo(() => dayjs(), [])
 
   return (
-    <div className="min-h-screen bg-gray-50 flex flex-col">
+    <div className="h-screen bg-gray-50 flex flex-col overflow-hidden">
       {/* Navigation Header */}
       <header className="bg-white shadow-sm border-b">
         <div className="px-4">
@@ -45,12 +45,12 @@ export default function HeroLayout() {
       </header>
 
       {/* Main Content Area */}
-      <main className="flex-1 p-4 overflow-hidden">
+      <main className="flex-1 p-4 overflow-hidden min-h-0">
         <Outlet />
       </main>
 
       {/* Footer */}
-      <footer className="bg-white border-t mt-auto">
+      <footer className="bg-white border-t shrink-0">
         <div className="max-w-7xl mx-auto py-4 px-4 sm:px-6 lg:px-8">
           <p className="text-center text-sm text-gray-500">
             © 2024-{today.year()} OnixByte. Built with React & TypeScript.
