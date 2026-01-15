@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react"
+import { useCallback, useMemo, useState } from "react"
 import jp from "jsonpath"
 import JsonTreeNode from "@/components/json-tree-node"
 
@@ -22,6 +22,7 @@ export default function Home() {
 
   const [jsonInput, setJsonInput] = useState<string>(JSON.stringify(initialData, null, 2))
   const [query, setQuery] = useState<string>("$.staff_members[*].name")
+  const [copied, setCopied] = useState(false)
 
   // 计算匹配结果
   const result = useMemo(() => {
@@ -31,12 +32,35 @@ export default function Home() {
       return {
         parsed,
         matchedPaths: nodes.map((n) => jp.stringify(n.path)),
+        matchedValues: nodes.map((n) => n.value),
         error: null,
       }
     } catch (e) {
-      return { parsed: null, matchedPaths: [], error: (e as Error).message }
+      return { parsed: null, matchedPaths: [], matchedValues: [], error: (e as Error).message }
     }
   }, [jsonInput, query])
+
+  // 复制为 CSV
+  const copyAsCsv = useCallback(() => {
+    if (result.matchedValues.length === 0) return
+
+    const escapeCsvValue = (val: unknown): string => {
+      const str = typeof val === "object" ? JSON.stringify(val) : String(val)
+      if (str.includes(",") || str.includes('"') || str.includes("\n")) {
+        return `"${str.replace(/"/g, '""')}"`
+      }
+      return str
+    }
+
+    const header = query
+    const rows = result.matchedValues.map(escapeCsvValue)
+    const csv = [header, ...rows].join("\n")
+
+    navigator.clipboard.writeText(csv).then(() => {
+      setCopied(true)
+      setTimeout(() => setCopied(false), 2000)
+    })
+  }, [query, result.matchedValues])
 
   return (
     <div className="h-full flex gap-4">
@@ -76,9 +100,18 @@ export default function Home() {
           <span className="text-xs font-semibold uppercase tracking-wider text-slate-500">
             Visualised Result
           </span>
-          <span className="text-xs font-medium px-2 py-0.5 bg-indigo-100 text-indigo-700 rounded-full">
-            {result.matchedPaths.length} matches
-          </span>
+          <div className="flex items-center gap-2">
+            <span className="text-xs font-medium px-2 py-0.5 bg-indigo-100 text-indigo-700 rounded-full">
+              {result.matchedPaths.length} matches
+            </span>
+            <button
+              onClick={copyAsCsv}
+              disabled={result.matchedValues.length === 0 || !!result.error}
+              className="text-xs font-medium px-3 py-1 bg-emerald-500 text-white rounded-lg hover:bg-emerald-600 disabled:bg-slate-300 disabled:cursor-not-allowed transition-colours"
+            >
+              {copied ? "Copied!" : "Copy as CSV"}
+            </button>
+          </div>
         </div>
 
         <div className="flex-1 p-6 overflow-auto font-mono text-sm leading-relaxed">
