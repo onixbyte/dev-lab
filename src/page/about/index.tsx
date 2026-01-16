@@ -13,68 +13,47 @@ export default function About() {
         </p>
       </div>
 
-      {/* Content Sections */}
-      <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
-        {/* Technology Stack */}
-        <div className="bg-white shadow rounded-lg p-6 border border-gray-100">
-          <h2 className="text-xl font-semibold text-gray-900 mb-4 flex items-center">
-            <span className="mr-2">🛠️</span> Technology Stack
-          </h2>
-          <ul className="space-y-3">
-            <li className="flex items-center">
-              <span className="w-2 h-2 bg-blue-500 rounded-full mr-3"></span>
-              <span className="text-gray-700">
-                <strong>React 19 & TS</strong> - Type-safe UI components
-              </span>
-            </li>
-            <li className="flex items-center">
-              <span className="w-2 h-2 bg-blue-500 rounded-full mr-3"></span>
-              <span className="text-gray-700">
-                <strong>jsonpath</strong> - Robust query engine for data extraction
-              </span>
-            </li>
-            <li className="flex items-center">
-              <span className="w-2 h-2 bg-blue-500 rounded-full mr-3"></span>
-              <span className="text-gray-700">
-                <strong>Tailwind CSS</strong> - Modern, responsive styling
-              </span>
-            </li>
-            <li className="flex items-center">
-              <span className="w-2 h-2 bg-blue-500 rounded-full mr-3"></span>
-              <span className="text-gray-700">
-                <strong>Vite</strong> - Optimised build pipeline and dev experience
-              </span>
-            </li>
-          </ul>
-        </div>
-
-        {/* Features */}
-        <div className="bg-white shadow rounded-lg p-6 border border-gray-100">
-          <h2 className="text-xl font-semibold text-gray-900 mb-4 flex items-center">
-            <span className="mr-2">🚀</span> Key Features
-          </h2>
-          <ul className="space-y-3">
-            <li className="flex items-center">
-              <span className="w-2 h-2 bg-green-500 rounded-full mr-3"></span>
-              <span className="text-gray-700">
-                Interactive <strong>collapsible</strong> tree navigation
-              </span>
-            </li>
-            <li className="flex items-center">
-              <span className="w-2 h-2 bg-green-500 rounded-full mr-3"></span>
-              <span className="text-gray-700">
-                Real-time JSONPath field <strong>highlighting</strong>
-              </span>
-            </li>
-            <li className="flex items-center">
-              <span className="w-2 h-2 bg-green-500 rounded-full mr-3"></span>
-              <span className="text-gray-700">One-click copy for matched results</span>
-            </li>
-            <li className="flex items-center">
-              <span className="w-2 h-2 bg-green-500 rounded-full mr-3"></span>
-              <span className="text-gray-700">Zero-latency local processing</span>
-            </li>
-          </ul>
+      {/* GitHub & Deployment */}
+      <div className="bg-white shadow rounded-lg p-6 border border-gray-100">
+        <h2 className="text-xl font-semibold text-gray-900 mb-4 flex items-center">
+          <span className="mr-2">📦</span> Open Source & Deployment
+        </h2>
+        <div className="space-y-4 text-gray-700">
+          <p>
+            This project is open source and available on GitHub. You can view the source code,
+            contribute, or deploy your own instance.
+          </p>
+          <div className="flex items-center gap-3">
+            <a
+              href="https://github.com/onixbyte/json-visualiser"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-4 py-2 bg-gray-900 text-white rounded-lg hover:bg-gray-800 transition-colours font-medium">
+              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  fillRule="evenodd"
+                  d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
+                  clipRule="evenodd"
+                />
+              </svg>
+              View on GitHub
+            </a>
+          </div>
+          <div className="bg-amber-50 border border-amber-200 rounded-lg p-4">
+            <p className="text-amber-900">
+              <strong>⭐ Star us on GitHub:</strong> If you find this project helpful, we'd greatly
+              appreciate it if you could give us a star on GitHub. It helps others discover the
+              project and motivates us to keep improving!
+            </p>
+          </div>
+          <div className="bg-blue-50 border border-blue-100 rounded-lg p-4 mt-4">
+            <p className="text-blue-900">
+              <strong>💡 Self-Hosting:</strong> You can deploy this application yourself! The
+              repository includes all necessary configuration files. Simply clone the repository,
+              install dependencies, and deploy to your preferred hosting platform (Vercel, Netlify,
+              or any static hosting service).
+            </p>
+          </div>
         </div>
       </div>
 
@@ -89,37 +68,6 @@ export default function About() {
           rendering are performed locally within your browser. No data is ever uploaded to any
           server, ensuring that sensitive configuration or user data remains entirely private.
         </p>
-      </div>
-
-      {/* Architecture Overview */}
-      <div className="bg-white shadow rounded-lg p-6">
-        <h2 className="text-xl font-semibold text-gray-900 mb-4 flex items-center">
-          <span className="mr-2">🏗️</span> Architecture Overview
-        </h2>
-        <div className="prose max-w-none text-gray-700">
-          <p className="mb-4">
-            The application follows a modular React architecture focused on performance and
-            maintainability:
-          </p>
-          <ul className="list-disc list-inside space-y-2 mb-4">
-            <li>
-              <strong>Recursive Renderer:</strong> A high-performance component tree that handles
-              massive JSON objects without blocking the main thread.
-            </li>
-            <li>
-              <strong>JSONPath Integration:</strong> Standardised path evaluation using the{" "}
-              <code>jsonpath</code> library, ensuring cross-platform query compatibility.
-            </li>
-            <li>
-              <strong>State Management:</strong> Efficient use of React hooks and useMemo to ensure
-              real-time UI updates during text entry.
-            </li>
-          </ul>
-          <p>
-            Hosted on Vercel, this visualiser leverages modern edge deployment whilst strictly
-            adhering to the local-first data processing principle.
-          </p>
-        </div>
       </div>
     </div>
   )

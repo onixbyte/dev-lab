@@ -53,8 +53,8 @@ ${message}
             </h2>
             <p className="text-gray-600 leading-relaxed">
               We use GitHub to track all bug reports and feature requests. This ensures our
-              development process remains **transparent** and that your feedback is properly
-              prioritised by the community.
+              development process remains <span className="font-bold">transparent</span> and that
+              your feedback is properly prioritised by the community.
             </p>
           </section>
 
