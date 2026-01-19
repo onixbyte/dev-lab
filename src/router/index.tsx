@@ -28,6 +28,14 @@ const router = createBrowserRouter(
           lazy: lazy(() => import("@/page/home")),
         },
         {
+          path: "json-viewer",
+          lazy: lazy(() => import("@/page/json-viewer")),
+        },
+        {
+          path: "bmi-calculator",
+          lazy: lazy(() => import("@/page/bmi-calculator")),
+        },
+        {
           path: "about",
           lazy: lazy(() => import("@/page/about")),
         },

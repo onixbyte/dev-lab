@@ -1,11 +1,11 @@
-# JSON Visualiser
+# DevLab
 
 A sophisticated, TypeScript-powered tool designed to parse JSON data and visualise **JSONPath** queries with precision. This tool allows developers to navigate complex data structures, highlight specific fields, and extract data efficiently.
 
 ## Access the App
 
 You can use the live version of the application directly in your browser:
-👉 **[https://json-visualiser.onixbyte.dev](https://json-visualiser.onixbyte.dev)**
+👉 **[https://dev-hub.onixbyte.dev](https://dev-hub.onixbyte.dev)**
 
 ## New Features
 
@@ -49,8 +49,8 @@ Ensure you have Node.js installed on your machine.
 
 1. Clone the repository
     ```bash
-    git clone https://github.com/onixbyte/json-visualiser.git
-    cd json-visualiser
+    git clone https://github.com/onixbyte/dev-lab.git
+    cd dev-lab
     ```
 
 2. Install dependencies
