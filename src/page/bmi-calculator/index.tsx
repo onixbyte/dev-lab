@@ -12,9 +12,9 @@ export default function BmiCalculator() {
   const [bmi, setBmi] = useState<number | null>(null)
   const [bmiCategory, setBmiCategory] = useState<string>("")
 
-  const calculateBMI = () => {
+  const calculateBodyMassIndex = () => {
     const weightNum = parseFloat(weight)
-    const heightNum = parseFloat(height) / 100 // Convert cm to meters
+    const heightNum = parseFloat(height) / 100 // Convert cm to metres
 
     if (weightNum > 0 && heightNum > 0) {
       const bmiValue = weightNum / (heightNum * heightNum)
@@ -126,7 +126,7 @@ export default function BmiCalculator() {
               {/* Action Buttons */}
               <div className="flex flex-col gap-2 pt-2">
                 <button
-                  onClick={calculateBMI}
+                  onClick={calculateBodyMassIndex}
                   disabled={!weight || !height}
                   className="w-full bg-indigo-600 text-white py-2.5 px-4 rounded-lg text-sm font-medium hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 disabled:bg-slate-300 disabled:cursor-not-allowed transition-colours">
                   {t("bmi.calculate")}
