@@ -5,7 +5,7 @@ import React from "react"
  */
 export default function Contact() {
   const owner = "onixbyte"
-  const repo = "json-visualiser"
+  const repo = "dev-hub"
 
   const handleRedirect = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
