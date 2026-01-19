@@ -1,4 +1,5 @@
 import { useCallback, useMemo, useState } from "react"
+import { useTranslation } from "react-i18next"
 import jp from "jsonpath"
 import JsonTreeNode from "@/components/json-tree-node"
 
@@ -6,6 +7,7 @@ import JsonTreeNode from "@/components/json-tree-node"
  * JSON Viewer page component that displays the JSON visualisation tool in DevLab.
  */
 export default function JsonViewer() {
+  const { t } = useTranslation()
   const initialData = {
     centre_id: "LON-01",
     location: "London",
@@ -78,7 +80,7 @@ export default function JsonViewer() {
         <div className="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden flex-1 flex flex-col min-h-0">
           <div className="bg-slate-50 px-4 py-2 border-b border-slate-200 shrink-0">
             <span className="text-xs font-semibold uppercase tracking-wider text-slate-500">
-
+              {t("jsonViewer.jsonSource")}
             </span>
           </div>
           <textarea
@@ -92,9 +94,9 @@ export default function JsonViewer() {
         {/* JSONPath Expression - fixed height */}
         <div className="bg-white rounded-xl shadow-sm border border-slate-200 p-4 shrink-0">
           <label className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider mb-2">
-            <span className="text-slate-500">JSONPath Expression</span>
+            <span className="text-slate-500">{t("jsonViewer.jsonPathExpression")}</span>
             {result.queryError && (
-              <span className="text-red-500 normal-case">— Invalid syntax</span>
+              <span className="text-red-500 normal-case">{t("jsonViewer.invalidSyntax")}</span>
             )}
           </label>
           <input
@@ -106,7 +108,7 @@ export default function JsonViewer() {
             }`}
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            placeholder="e.g. $..roles"
+            placeholder={t("jsonViewer.placeholder")}
           />
         </div>
       </div>
@@ -115,18 +117,18 @@ export default function JsonViewer() {
       <div className="w-[70%] bg-white rounded-xl shadow-sm border border-slate-200 flex flex-col overflow-hidden min-h-0">
         <div className="bg-slate-50 px-4 py-2 border-b border-slate-200 flex justify-between items-center shrink-0">
           <span className="text-xs font-semibold uppercase tracking-wider text-slate-500">
-            Visualised Result
+            {t("jsonViewer.visualisedResult")}
           </span>
           <div className="flex items-center gap-2">
             <span className="text-xs font-medium px-2 py-0.5 bg-indigo-100 text-indigo-700 rounded-full">
-              {result.matchedPaths.length} matches
+              {result.matchedPaths.length} {t("jsonViewer.matches")}
             </span>
             <button
               onClick={copyAsCsv}
               disabled={result.matchedValues.length === 0 || !!result.error}
               className="text-xs font-medium px-3 py-1 bg-emerald-500 text-white rounded-lg hover:bg-emerald-600 disabled:bg-slate-300 disabled:cursor-not-allowed transition-colours"
             >
-              {copied ? "Copied!" : "Copy as CSV"}
+              {copied ? t("jsonViewer.copied") : t("jsonViewer.copyAsCsv")}
             </button>
           </div>
         </div>
@@ -134,7 +136,7 @@ export default function JsonViewer() {
         <div className="flex-1 p-6 overflow-auto font-mono text-sm leading-relaxed min-h-0">
           {result.error && (
             <div className="bg-red-50 text-red-600 p-4 rounded-lg border border-red-100 text-xs mb-4">
-              <strong>Error:</strong> {result.error}
+              <strong>{t("jsonViewer.error")}</strong> {result.error}
             </div>
           )}
           {result.parsed && (

@@ -1,31 +1,33 @@
+import { useTranslation } from "react-i18next"
+
 /**
  * About page component that displays information about the DevLab application.
  */
 export default function About() {
+  const { t } = useTranslation()
+
   return (
     <div className="space-y-8 max-w-6xl mx-auto">
       {/* Page Header */}
       <div className="text-center">
-        <h1 className="text-3xl font-bold text-gray-900 sm:text-4xl">About DevLab</h1>
+        <h1 className="text-3xl font-bold text-gray-900 sm:text-4xl">{t("about.title")}</h1>
         <p className="mt-4 text-lg text-gray-600">
-          A powerful, privacy-focused tool for debugging and visualising complex JSON data
-          structures.
+          {t("about.description")}
         </p>
       </div>
 
       {/* GitHub & Deployment */}
       <div className="bg-white shadow rounded-lg p-6 border border-gray-100">
         <h2 className="text-xl font-semibold text-gray-900 mb-4 flex items-center">
-          <span className="mr-2">📦</span> Open Source & Deployment
+          <span className="mr-2">📦</span> {t("about.openSource.title")}
         </h2>
         <div className="space-y-4 text-gray-700">
           <p>
-            This project is open source and available on GitHub. You can view the source code,
-            contribute, or deploy your own instance.
+            {t("about.openSource.description")}
           </p>
           <div className="flex items-center gap-3">
             <a
-              href="https://github.com/onixbyte/json-visualiser"
+              href="https://github.com/onixbyte/dev-lab"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-4 py-2 bg-gray-900 text-white rounded-lg hover:bg-gray-800 transition-colours font-medium">
@@ -36,22 +38,17 @@ export default function About() {
                   clipRule="evenodd"
                 />
               </svg>
-              View on GitHub
+              {t("about.openSource.viewOnGitHub")}
             </a>
           </div>
           <div className="bg-amber-50 border border-amber-200 rounded-lg p-4">
             <p className="text-amber-900">
-              <strong>⭐ Star us on GitHub:</strong> If you find this project helpful, we'd greatly
-              appreciate it if you could give us a star on GitHub. It helps others discover the
-              project and motivates us to keep improving!
+              <strong>{t("about.openSource.starUs")}</strong> {t("about.openSource.starUsDescription")}
             </p>
           </div>
           <div className="bg-blue-50 border border-blue-100 rounded-lg p-4 mt-4">
             <p className="text-blue-900">
-              <strong>💡 Self-Hosting:</strong> You can deploy this application yourself! The
-              repository includes all necessary configuration files. Simply clone the repository,
-              install dependencies, and deploy to your preferred hosting platform (Vercel, Netlify,
-              or any static hosting service).
+              <strong>{t("about.openSource.selfHosting")}</strong> {t("about.openSource.selfHostingDescription")}
             </p>
           </div>
         </div>
@@ -60,13 +57,10 @@ export default function About() {
       {/* Privacy Commitment */}
       <div className="bg-indigo-50 border border-indigo-100 rounded-lg p-6 text-indigo-900">
         <h2 className="text-xl font-semibold mb-3 flex items-center">
-          <span className="mr-2">🔒</span> Privacy & Data Security
+          <span className="mr-2">🔒</span> {t("about.privacy.title")}
         </h2>
         <p className="leading-relaxed">
-          We believe that your data belongs to you. This application is designed as a{" "}
-          <strong>purely client-side tool</strong>. All JSON parsing, path evaluation, and visual
-          rendering are performed locally within your browser. No data is ever uploaded to any
-          server, ensuring that sensitive configuration or user data remains entirely private.
+          {t("about.privacy.description")}
         </p>
       </div>
     </div>

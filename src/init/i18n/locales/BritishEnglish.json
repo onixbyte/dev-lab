@@ -1,16 +1,99 @@
 {
   "app": {
-    "title": "DevHub",
-    "pageTitle": "DevHub",
+    "title": "DevLab",
+    "pageTitle": "DevLab",
     "copyright": "© {{year}} OnixByte. Built with React & TypeScript."
   },
   "navigation": {
-    "home": "Home"
+    "home": "Home",
+    "about": "About",
+    "contact": "Contact"
   },
   "language": {
     "switch": "Switch Language",
     "english": "English (Great Britain)",
     "chinese": "简体中文"
+  },
+  "home": {
+    "title": "DevLab",
+    "description": "A collection of powerful, privacy-focused developer tools. All processing happens locally in your browser.",
+    "getStarted": "Get Started",
+    "getStartedDescription": "Start visualising and querying your JSON data with our intuitive JSONPath-based tool.",
+    "openJsonViewer": "Open JSON Viewer",
+    "openBmiCalculator": "Open BMI Calculator",
+    "bmiCalculatorDescription": "Calculate your Body Mass Index (BMI) to assess your weight status and health. Get instant results with personalised advice based on your BMI category.",
+    "features": {
+      "tools": {
+        "title": "🛠️ Developer Tools",
+        "description": "A growing collection of practical tools for developers and everyday use."
+      },
+      "privacy": {
+        "title": "🔒 Privacy First",
+        "description": "All processing happens locally in your browser. No data is ever sent to servers."
+      },
+      "free": {
+        "title": "✨ Free & Open",
+        "description": "Completely free to use with no limitations. Open source and transparent."
+      }
+    }
+  },
+  "jsonViewer": {
+    "jsonSource": "JSON Source",
+    "jsonPathExpression": "JSONPath Expression",
+    "invalidSyntax": "— Invalid syntax",
+    "placeholder": "e.g. $..roles",
+    "visualisedResult": "Visualised Result",
+    "matches": "matches",
+    "copied": "Copied!",
+    "copyAsCsv": "Copy as CSV",
+    "error": "Error:"
+  },
+  "about": {
+    "title": "About DevLab",
+    "description": "A powerful, privacy-focused tool for debugging and visualising complex JSON data structures.",
+    "openSource": {
+      "title": "📦 Open Source & Deployment",
+      "description": "This project is open source and available on GitHub. You can view the source code, contribute, or deploy your own instance.",
+      "viewOnGitHub": "View on GitHub",
+      "starUs": "⭐ Star us on GitHub:",
+      "starUsDescription": "If you find this project helpful, we'd greatly appreciate it if you could give us a star on GitHub. It helps others discover the project and motivates us to keep improving!",
+      "selfHosting": "💡 Self-Hosting:",
+      "selfHostingDescription": "You can deploy this application yourself! The repository includes all necessary configuration files. Simply clone the repository, install dependencies, and deploy to your preferred hosting platform (Vercel, Netlify, or any static hosting service)."
+    },
+    "privacy": {
+      "title": "🔒 Privacy & Data Security",
+      "description": "We believe that your data belongs to you. This application is designed as a purely client-side tool. All JSON parsing, path evaluation, and visual rendering are performed locally within your browser. No data is ever uploaded to any server, ensuring that sensitive configuration or user data remains entirely private."
+    }
+  },
+  "contact": {
+    "title": "Get in Touch",
+    "description": "The best way to reach us is via our GitHub repository.",
+    "whyGitHub": {
+      "title": "🤝 Why GitHub Issues?",
+      "description": "We use GitHub to track all bug reports and feature requests. This ensures our development process remains transparent and that your feedback is properly prioritised by the community."
+    },
+    "howItWorks": {
+      "title": "How it works:",
+      "step1": "Fill in the enquiry details in the form provided.",
+      "step2": "Click \"Prepare GitHub Issue\".",
+      "step3": "You will be redirected to GitHub with the data pre-filled.",
+      "step4": "Simply hit \"Submit new issue\" on their site."
+    },
+    "email": "Alternatively, you can email us directly at:",
+    "form": {
+      "subject": "Subject",
+      "subjectPlaceholder": "Bug report / Feature request",
+      "type": "Enquiry Type",
+      "typeHelp": "Selecting a type helps us categorise and prioritise your issue.",
+      "message": "Message Details",
+      "messagePlaceholder": "Describe your enquiry here...",
+      "submit": "Prepare GitHub Issue"
+    },
+    "types": {
+      "helpWanted": "General Enquiry",
+      "enhancement": "Feature Request",
+      "bug": "Bug"
+    }
   },
   "bmi": {
     "title": "BMI Calculator",
@@ -26,7 +109,8 @@
     "calculate": "Calculate BMI",
     "reset": "Reset",
     "result": {
-      "title": "Your BMI Result"
+      "title": "Your BMI Result",
+      "emptyState": "Enter your weight and height to calculate your BMI"
     },
     "category": {
       "underweight": "Underweight",

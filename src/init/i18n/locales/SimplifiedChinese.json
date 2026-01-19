@@ -1,16 +1,99 @@
 {
   "app": {
-    "title": "DevHub",
-    "pageTitle": "DevHub",
+    "title": "DevLab",
+    "pageTitle": "DevLab",
     "copyright": "© {{year}} OnixByte。 使用 React 和 TypeScript 构建。"
   },
   "navigation": {
-    "home": "首页"
+    "home": "首页",
+    "about": "关于",
+    "contact": "联系"
   },
   "language": {
     "switch": "切换语言",
     "english": "English (Great Britain)",
     "chinese": "简体中文"
+  },
+  "home": {
+    "title": "DevLab",
+    "description": "一系列强大的、注重隐私的开发者工具集合。所有处理都在您的浏览器本地进行。",
+    "getStarted": "开始使用",
+    "getStartedDescription": "使用我们直观的基于 JSONPath 的工具开始可视化和查询您的 JSON 数据。",
+    "openJsonViewer": "打开 JSON 查看器",
+    "openBmiCalculator": "打开 BMI 计算器",
+    "bmiCalculatorDescription": "计算您的身体质量指数（BMI）以评估您的体重状态和健康状况。根据您的 BMI 分类获得即时结果和个性化建议。",
+    "features": {
+      "tools": {
+        "title": "🛠️ 开发者工具",
+        "description": "不断增长的实用工具集合，适用于开发者和日常使用。"
+      },
+      "privacy": {
+        "title": "🔒 隐私优先",
+        "description": "所有处理都在您的浏览器本地进行。数据永远不会发送到服务器。"
+      },
+      "free": {
+        "title": "✨ 免费开源",
+        "description": "完全免费使用，无任何限制。开源且透明。"
+      }
+    }
+  },
+  "jsonViewer": {
+    "jsonSource": "JSON 源",
+    "jsonPathExpression": "JSONPath 表达式",
+    "invalidSyntax": "— 语法无效",
+    "placeholder": "例如：$..roles",
+    "visualisedResult": "可视化结果",
+    "matches": "个匹配",
+    "copied": "已复制！",
+    "copyAsCsv": "复制为 CSV",
+    "error": "错误："
+  },
+  "about": {
+    "title": "关于 DevLab",
+    "description": "一个强大的、注重隐私的工具，用于调试和可视化复杂的 JSON 数据结构。",
+    "openSource": {
+      "title": "📦 开源与部署",
+      "description": "这个项目是开源的，可在 GitHub 上获取。您可以查看源代码、贡献代码或部署您自己的实例。",
+      "viewOnGitHub": "在 GitHub 上查看",
+      "starUs": "⭐ 在 GitHub 上为我们加星：",
+      "starUsDescription": "如果您觉得这个项目有帮助，我们非常感激您能在 GitHub 上为我们加星。这有助于其他人发现这个项目，并激励我们不断改进！",
+      "selfHosting": "💡 自托管：",
+      "selfHostingDescription": "您可以自己部署这个应用程序！仓库包含所有必要的配置文件。只需克隆仓库、安装依赖，然后部署到您首选的托管平台（Vercel、Netlify 或任何静态托管服务）。"
+    },
+    "privacy": {
+      "title": "🔒 隐私与数据安全",
+      "description": "我们相信您的数据属于您。此应用程序设计为纯客户端工具。所有 JSON 解析、路径评估和可视化渲染都在您的浏览器本地执行。数据永远不会上传到任何服务器，确保敏感配置或用户数据完全私密。"
+    }
+  },
+  "contact": {
+    "title": "联系我们",
+    "description": "联系我们的最佳方式是通过我们的 GitHub 仓库。",
+    "whyGitHub": {
+      "title": "🤝 为什么使用 GitHub Issues？",
+      "description": "我们使用 GitHub 来跟踪所有错误报告和功能请求。这确保我们的开发过程保持透明，并且您的反馈会被社区正确优先处理。"
+    },
+    "howItWorks": {
+      "title": "使用方法：",
+      "step1": "在提供的表单中填写查询详情。",
+      "step2": "点击 \"准备 GitHub Issue\"。",
+      "step3": "您将被重定向到 GitHub，数据已预填。",
+      "step4": "只需在他们的网站上点击 \"提交新问题\"。"
+    },
+    "email": "或者，您可以直接发送电子邮件至：",
+    "form": {
+      "subject": "主题",
+      "subjectPlaceholder": "错误报告 / 功能请求",
+      "type": "查询类型",
+      "typeHelp": "选择类型有助于我们分类和优先处理您的问题。",
+      "message": "消息详情",
+      "messagePlaceholder": "在此描述您的查询...",
+      "submit": "准备 GitHub Issue"
+    },
+    "types": {
+      "helpWanted": "一般查询",
+      "enhancement": "功能请求",
+      "bug": "错误"
+    }
   },
   "bmi": {
     "title": "BMI 计算器",
@@ -26,7 +109,8 @@
     "calculate": "计算 BMI",
     "reset": "重置",
     "result": {
-      "title": "您的 BMI 结果"
+      "title": "您的 BMI 结果",
+      "emptyState": "请输入您的体重和身高以计算 BMI"
     },
     "category": {
       "underweight": "体重过轻",
