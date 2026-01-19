@@ -1,0 +1,47 @@
+{
+  "app": {
+    "title": "DevHub",
+    "pageTitle": "DevHub",
+    "copyright": "© {{year}} OnixByte。 使用 React 和 TypeScript 构建。"
+  },
+  "navigation": {
+    "home": "首页"
+  },
+  "language": {
+    "switch": "切换语言",
+    "english": "English (Great Britain)",
+    "chinese": "简体中文"
+  },
+  "bmi": {
+    "title": "BMI 计算器",
+    "description": "计算您的身体质量指数（BMI）以评估您的体重状态和健康状况。",
+    "weight": {
+      "label": "体重",
+      "placeholder": "请输入您的体重"
+    },
+    "height": {
+      "label": "身高",
+      "placeholder": "请输入您的身高"
+    },
+    "calculate": "计算 BMI",
+    "reset": "重置",
+    "result": {
+      "title": "您的 BMI 结果"
+    },
+    "category": {
+      "underweight": "体重过轻",
+      "normal": "正常体重",
+      "overweight": "超重",
+      "obese": "肥胖"
+    },
+    "advice": {
+      "underweight": "您可能需要增加体重。建议咨询医疗专业人士获取个性化建议。",
+      "normal": "您的体重对于您的身高来说是健康的。保持目前的生活方式，规律运动和均衡营养。",
+      "overweight": "您可能需要减轻一些体重。建议增加体育活动并改善饮食。",
+      "obese": "您可能面临健康风险增加。建议咨询医疗专业人士获取指导。"
+    },
+    "scale": {
+      "title": "BMI 分类"
+    }
+  }
+}
