@@ -49,8 +49,8 @@ Ensure you have Node.js installed on your machine.
 
 1. Clone the repository
     ```bash
-    git clone https://github.com/onixbyte/json-visualiser.git
-    cd json-visualiser
+    git clone https://github.com/onixbyte/dev-hub.git
+    cd dev-hub
     ```
 
 2. Install dependencies
