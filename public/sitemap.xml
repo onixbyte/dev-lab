@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <!-- Homepage -->
+  <url>
+    <loc>https://dev-lab.onixbyte.dev/</loc>
+    <lastmod>2024-01-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dev-lab.onixbyte.dev/" />
+    <xhtml:link rel="alternate" hreflang="zh" href="https://dev-lab.onixbyte.dev/?lang=zh-CN" />
+  </url>
+  
+  <!-- JSON Viewer -->
+  <url>
+    <loc>https://dev-lab.onixbyte.dev/json-viewer</loc>
+    <lastmod>2024-01-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dev-lab.onixbyte.dev/json-viewer" />
+    <xhtml:link rel="alternate" hreflang="zh" href="https://dev-lab.onixbyte.dev/json-viewer?lang=zh-CN" />
+  </url>
+  
+  <!-- BMI Calculator -->
+  <url>
+    <loc>https://dev-lab.onixbyte.dev/bmi-calculator</loc>
+    <lastmod>2024-01-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dev-lab.onixbyte.dev/bmi-calculator" />
+    <xhtml:link rel="alternate" hreflang="zh" href="https://dev-lab.onixbyte.dev/bmi-calculator?lang=zh-CN" />
+  </url>
+  
+  <!-- About -->
+  <url>
+    <loc>https://dev-lab.onixbyte.dev/about</loc>
+    <lastmod>2024-01-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dev-lab.onixbyte.dev/about" />
+    <xhtml:link rel="alternate" hreflang="zh" href="https://dev-lab.onixbyte.dev/about?lang=zh-CN" />
+  </url>
+  
+  <!-- Contact -->
+  <url>
+    <loc>https://dev-lab.onixbyte.dev/contact</loc>
+    <lastmod>2024-01-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://dev-lab.onixbyte.dev/contact" />
+    <xhtml:link rel="alternate" hreflang="zh" href="https://dev-lab.onixbyte.dev/contact?lang=zh-CN" />
+  </url>
+</urlset>

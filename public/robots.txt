@@ -1,0 +1,10 @@
+# robots.txt for DevLab
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://dev-lab.onixbyte.dev/sitemap.xml
+
+# Disallow admin or private areas if any
+# Disallow: /admin/
+# Disallow: /private/
