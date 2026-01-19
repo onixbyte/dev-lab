@@ -5,7 +5,7 @@ A sophisticated, TypeScript-powered tool designed to parse JSON data and visuali
 ## Access the App
 
 You can use the live version of the application directly in your browser:
-👉 **[https://json-visualiser.onixbyte.dev](https://json-visualiser.onixbyte.dev)**
+👉 **[https://dev-hub.onixbyte.dev](https://dev-hub.onixbyte.dev)**
 
 ## New Features
 
