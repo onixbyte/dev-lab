@@ -23,7 +23,7 @@ export default function Contact() {
 ${message}
 
 ---
-*Generated via JSON Visualiser Contact Page*
+*Generated via DevLab Contact Page*
     `.trim()
 
     const githubUrl = `https://github.com/${owner}/${repo}/issues/new?title=${encodeURIComponent(

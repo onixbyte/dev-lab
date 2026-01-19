@@ -8,7 +8,7 @@ export default function Home() {
     <div className="space-y-8 max-w-6xl mx-auto">
       {/* Page Header */}
       <div className="text-center">
-        <h1 className="text-3xl font-bold text-gray-900 sm:text-4xl">JSON Visualiser</h1>
+        <h1 className="text-3xl font-bold text-gray-900 sm:text-4xl">DevLab</h1>
         <p className="mt-4 text-lg text-gray-600">
           A powerful, privacy-focused tool for debugging and visualising complex JSON data
           structures.

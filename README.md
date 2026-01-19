@@ -1,4 +1,4 @@
-# JSON Visualiser
+# DevLab
 
 A sophisticated, TypeScript-powered tool designed to parse JSON data and visualise **JSONPath** queries with precision. This tool allows developers to navigate complex data structures, highlight specific fields, and extract data efficiently.
 

@@ -3,7 +3,7 @@ import jp from "jsonpath"
 import JsonTreeNode from "@/components/json-tree-node"
 
 /**
- * JSON Viewer page component that displays the JSON Visualiser tool.
+ * JSON Viewer page component that displays the JSON Visualiser tool in DevLab.
  */
 export default function JsonViewer() {
   const initialData = {
