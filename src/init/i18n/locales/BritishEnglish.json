@@ -1,0 +1,47 @@
+{
+  "app": {
+    "title": "DevHub",
+    "pageTitle": "DevHub",
+    "copyright": "© {{year}} OnixByte. Built with React & TypeScript."
+  },
+  "navigation": {
+    "home": "Home"
+  },
+  "language": {
+    "switch": "Switch Language",
+    "english": "English (Great Britain)",
+    "chinese": "简体中文"
+  },
+  "bmi": {
+    "title": "BMI Calculator",
+    "description": "Calculate your Body Mass Index (BMI) to assess your weight status and health.",
+    "weight": {
+      "label": "Weight",
+      "placeholder": "Enter your weight"
+    },
+    "height": {
+      "label": "Height",
+      "placeholder": "Enter your height"
+    },
+    "calculate": "Calculate BMI",
+    "reset": "Reset",
+    "result": {
+      "title": "Your BMI Result"
+    },
+    "category": {
+      "underweight": "Underweight",
+      "normal": "Normal Weight",
+      "overweight": "Overweight",
+      "obese": "Obese"
+    },
+    "advice": {
+      "underweight": "You may need to gain weight. Consider consulting with a healthcare professional for personalised advice.",
+      "normal": "You have a healthy weight for your height. Maintain your current lifestyle with regular exercise and balanced nutrition.",
+      "overweight": "You may benefit from losing some weight. Consider increasing physical activity and improving your diet.",
+      "obese": "You may be at increased health risk. It's recommended to consult with a healthcare professional for guidance."
+    },
+    "scale": {
+      "title": "BMI Categories"
+    }
+  }
+}
