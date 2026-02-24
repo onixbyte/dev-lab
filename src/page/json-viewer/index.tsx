@@ -27,6 +27,10 @@ export default function JsonViewer() {
   const [query, setQuery] = useState<string>("$.staff_members[*].name")
   const [copied, setCopied] = useState(false)
 
+  const isPlainObject = (value: unknown): value is Record<string, unknown> => {
+    return value !== null && typeof value === "object" && !Array.isArray(value)
+  }
+
   // Compute matching results
   const result = useMemo(() => {
     let parsed
@@ -63,9 +67,21 @@ export default function JsonViewer() {
       return str
     }
 
-    const header = query
-    const rows = result.matchedValues.map(escapeCsvValue)
-    const csv = [header, ...rows].join("\n")
+    const objectMatches = result.matchedValues.filter(isPlainObject)
+    const isObjectTable = objectMatches.length > 0 && objectMatches.length === result.matchedValues.length
+
+    const csv = isObjectTable
+      ? (() => {
+        const columns = Array.from(new Set(objectMatches.flatMap((item) => Object.keys(item))))
+        const headerRow = columns.map(escapeCsvValue).join(",")
+        const valueRows = objectMatches.map((item) => columns.map((column) => escapeCsvValue(item[column])).join(","))
+        return [headerRow, ...valueRows].join("\n")
+      })()
+      : (() => {
+        const header = query
+        const rows = result.matchedValues.map(escapeCsvValue)
+        return [header, ...rows].join("\n")
+      })()
 
     navigator.clipboard.writeText(csv).then(() => {
       setCopied(true)
