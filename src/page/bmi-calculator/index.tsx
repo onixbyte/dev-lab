@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { useTranslation } from "react-i18next"
+import Seo from "@/components/seo"
 
 /**
  * BMI Calculator page component that displays the BMI calculator tool.
@@ -72,6 +73,11 @@ export default function BmiCalculator() {
 
   return (
     <div className="h-full flex gap-4 overflow-hidden">
+      <Seo
+        title={t("seo.bmi.title")}
+        description={t("seo.bmi.description")}
+        path="/bmi-calculator"
+      />
       {/* Left panel - 30% */}
       <div className="w-[30%] flex flex-col gap-4 min-h-0">
         {/* Input Form - fills remaining height */}

@@ -7,21 +7,59 @@
   "navigation": {
     "home": "首页",
     "about": "关于",
-    "contact": "联系"
+    "contact": "联系",
+    "changelog": "更新日志",
+    "tools": "工具",
+    "jsonProcessing": "JSON 处理",
+    "dailyTools": "日常小工具",
+    "expandToolsMenu": "展开工具菜单",
+    "collapseToolsMenu": "收起工具菜单"
   },
   "language": {
     "switch": "切换语言",
     "english": "English (Great Britain)",
     "chinese": "简体中文"
   },
+  "seo": {
+    "home": {
+      "title": "DevLab - 免费开发者工具",
+      "description": "一系列强大的、注重隐私的开发者工具集合，包含 JSON 查看器、json-grid、BMI 计算器等。"
+    },
+    "jsonViewer": {
+      "title": "JSON 查看器 - JSONPath 查询",
+      "description": "使用 JSONPath 可视化并查询 JSON 数据，筛选结果并导出 CSV，全程在浏览器本地完成。"
+    },
+    "jsonGrid": {
+      "title": "JSON Grid - JSON 数组转表格",
+      "description": "将 JSON 数组转换为清晰的表格视图并导出 CSV，所有处理均在本地完成。"
+    },
+    "bmi": {
+      "title": "BMI 计算器 - 即时结果",
+      "description": "快速计算 BMI，并获得分类与建议。"
+    },
+    "about": {
+      "title": "关于 DevLab",
+      "description": "了解 DevLab：一个开源且注重隐私的开发者工具集合。"
+    },
+    "contact": {
+      "title": "联系 DevLab",
+      "description": "通过 GitHub Issues 反馈问题或提交功能需求。"
+    },
+    "changelog": {
+      "title": "更新日志",
+      "description": "DevLab 完整的更新和改进历史记录。"
+    }
+  },
   "home": {
     "title": "DevLab",
     "description": "一系列强大的、注重隐私的开发者工具集合。所有处理都在您的浏览器本地进行。",
     "getStarted": "开始使用",
-    "getStartedDescription": "使用我们直观的基于 JSONPath 的工具开始可视化和查询您的 JSON 数据。",
-    "openJsonViewer": "打开 JSON 查看器",
-    "openBmiCalculator": "打开 BMI 计算器",
+    "jsonViewerDescription": "使用我们直观的基于 JSONPath 的工具开始可视化和查询您的 JSON 数据。",
+    "jsonViewer": "JSON 查看器",
+    "bmiCalculator": "BMI 计算器",
+    "jsonGrid": "JSON Grid",
     "bmiCalculatorDescription": "计算您的身体质量指数（BMI）以评估您的体重状态和健康状况。根据您的 BMI 分类获得即时结果和个性化建议。",
+    "jsonGridDescription": "将 JSON 数组转换为清晰的表格视图，便于快速查看和对比。",
     "features": {
       "tools": {
         "title": "🛠️ 开发者工具",
@@ -45,8 +83,18 @@
     "visualisedResult": "可视化结果",
     "matches": "个匹配",
     "copied": "已复制！",
+    "copyRawJson": "复制选中 JSON",
     "copyAsCsv": "复制为 CSV",
     "error": "错误："
+  },
+  "jsonGrid": {
+    "jsonInput": "JSON 输入",
+    "tableResult": "表格结果",
+    "rows": "行",
+    "exportCsv": "导出 CSV",
+    "empty": "暂无可展示的数据。",
+    "parseError": "JSON 无效：",
+    "arrayOnlyError": "请输入 JSON 数组。"
   },
   "about": {
     "title": "关于 DevLab",
@@ -127,5 +175,13 @@
     "scale": {
       "title": "BMI 分类"
     }
+  },
+  "changelog": {
+    "title": "更新日志",
+    "description": "DevLab 所有值得关注的变更都记录在此。",
+    "featureType": "功能",
+    "fixType": "修复",
+    "refactorType": "重构",
+    "choreType": "维护"
   }
 }

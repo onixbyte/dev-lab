@@ -2,6 +2,8 @@ import { useCallback, useMemo, useState } from "react"
 import { useTranslation } from "react-i18next"
 import jp from "jsonpath"
 import JsonTreeNode from "@/components/json-tree-node"
+import JsonCodeEditor from "@/components/json-code-editor"
+import Seo from "@/components/seo"
 
 /**
  * JSON Viewer page component that displays the JSON visualisation tool in DevLab.
@@ -13,6 +15,7 @@ export default function JsonViewer() {
     location: "London",
     is_active: true,
     staff_members: [
+      { id: 100, name: "TTY", roles: ["CEO"] },
       { id: 101, name: "Alice", roles: ["Admin", "Manager"] },
       { id: 102, name: "Bob", roles: ["Developer"] },
     ],
@@ -24,7 +27,12 @@ export default function JsonViewer() {
 
   const [jsonInput, setJsonInput] = useState<string>(JSON.stringify(initialData, null, 2))
   const [query, setQuery] = useState<string>("$.staff_members[*].name")
-  const [copied, setCopied] = useState(false)
+  const [copiedCsv, setCopiedCsv] = useState(false)
+  const [copiedRawJson, setCopiedRawJson] = useState(false)
+
+  const isPlainObject = (value: unknown): value is Record<string, unknown> => {
+    return value !== null && typeof value === "object" && !Array.isArray(value)
+  }
 
   // Compute matching results
   const result = useMemo(() => {
@@ -32,7 +40,13 @@ export default function JsonViewer() {
     try {
       parsed = JSON.parse(jsonInput)
     } catch (e) {
-      return { parsed: null, matchedPaths: [], matchedValues: [], error: (e as Error).message, queryError: null }
+      return {
+        parsed: null,
+        matchedPaths: [],
+        matchedValues: [],
+        error: (e as Error).message,
+        queryError: null,
+      }
     }
 
     try {
@@ -46,7 +60,13 @@ export default function JsonViewer() {
       }
     } catch (e) {
       // When JSONPath expression is invalid, still display the JSON tree but with no matches
-      return { parsed, matchedPaths: [], matchedValues: [], error: null, queryError: (e as Error).message }
+      return {
+        parsed,
+        matchedPaths: [],
+        matchedValues: [],
+        error: null,
+        queryError: (e as Error).message,
+      }
     }
   }, [jsonInput, query])
 
@@ -62,18 +82,51 @@ export default function JsonViewer() {
       return str
     }
 
-    const header = query
-    const rows = result.matchedValues.map(escapeCsvValue)
-    const csv = [header, ...rows].join("\n")
+    const objectMatches = result.matchedValues.filter(isPlainObject)
+    const isObjectTable =
+      objectMatches.length > 0 && objectMatches.length === result.matchedValues.length
+
+    const csv = isObjectTable
+      ? (() => {
+          const columns = Array.from(new Set(objectMatches.flatMap((item) => Object.keys(item))))
+          const headerRow = columns.map(escapeCsvValue).join(",")
+          const valueRows = objectMatches.map((item) =>
+            columns.map((column) => escapeCsvValue(item[column])).join(",")
+          )
+          return [headerRow, ...valueRows].join("\n")
+        })()
+      : (() => {
+          const header = query
+          const rows = result.matchedValues.map(escapeCsvValue)
+          return [header, ...rows].join("\n")
+        })()
 
     navigator.clipboard.writeText(csv).then(() => {
-      setCopied(true)
-      setTimeout(() => setCopied(false), 2000)
+      setCopiedCsv(true)
+      setTimeout(() => setCopiedCsv(false), 2000)
     })
   }, [query, result.matchedValues])
 
+  const copySelectedRawJson = useCallback(() => {
+    if (result.matchedValues.length === 0) return
+
+    const payload =
+      result.matchedValues.length === 1 ? result.matchedValues[0] : result.matchedValues
+    const json = JSON.stringify(payload, null, 2)
+
+    navigator.clipboard.writeText(json).then(() => {
+      setCopiedRawJson(true)
+      setTimeout(() => setCopiedRawJson(false), 2000)
+    })
+  }, [result.matchedValues])
+
   return (
     <div className="h-full flex gap-4 overflow-hidden">
+      <Seo
+        title={t("seo.jsonViewer.title")}
+        description={t("seo.jsonViewer.description")}
+        path="/json-viewer"
+      />
       {/* Left panel - 30% */}
       <div className="w-[30%] flex flex-col gap-4 min-h-0">
         {/* JSON Source - fills remaining height */}
@@ -83,12 +136,7 @@ export default function JsonViewer() {
               {t("jsonViewer.jsonSource")}
             </span>
           </div>
-          <textarea
-            className="flex-1 w-full p-4 font-mono text-sm outline-none focus:ring-2 focus:ring-indigo-500/20 transition-all resize-none overflow-auto"
-            value={jsonInput}
-            onChange={(e) => setJsonInput(e.target.value)}
-            spellCheck={false}
-          />
+          <JsonCodeEditor value={jsonInput} onChange={setJsonInput} />
         </div>
 
         {/* JSONPath Expression - fixed height */}
@@ -124,11 +172,16 @@ export default function JsonViewer() {
               {result.matchedPaths.length} {t("jsonViewer.matches")}
             </span>
             <button
+              onClick={copySelectedRawJson}
+              disabled={result.matchedValues.length === 0 || !!result.error}
+              className="text-xs font-medium px-3 py-1 bg-indigo-500 text-white rounded-lg hover:bg-indigo-600 disabled:bg-slate-300 disabled:cursor-not-allowed transition-colours">
+              {copiedRawJson ? t("jsonViewer.copied") : t("jsonViewer.copyRawJson")}
+            </button>
+            <button
               onClick={copyAsCsv}
               disabled={result.matchedValues.length === 0 || !!result.error}
-              className="text-xs font-medium px-3 py-1 bg-emerald-500 text-white rounded-lg hover:bg-emerald-600 disabled:bg-slate-300 disabled:cursor-not-allowed transition-colours"
-            >
-              {copied ? t("jsonViewer.copied") : t("jsonViewer.copyAsCsv")}
+              className="text-xs font-medium px-3 py-1 bg-emerald-500 text-white rounded-lg hover:bg-emerald-600 disabled:bg-slate-300 disabled:cursor-not-allowed transition-colours">
+              {copiedCsv ? t("jsonViewer.copied") : t("jsonViewer.copyAsCsv")}
             </button>
           </div>
         </div>
@@ -140,11 +193,7 @@ export default function JsonViewer() {
             </div>
           )}
           {result.parsed && (
-            <JsonTreeNode
-              data={result.parsed}
-              path={["$"]}
-              matchedPaths={result.matchedPaths}
-            />
+            <JsonTreeNode data={result.parsed} path={["$"]} matchedPaths={result.matchedPaths} />
           )}
         </div>
       </div>
