@@ -17,6 +17,17 @@ interface ChangelogVersion {
 
 const CHANGELOG_DATA: ChangelogVersion[] = [
   {
+    version: "1.1.1",
+    date: "2026-02-24",
+    entries: [
+      {
+        type: "feat",
+        title: "JSON Path Highlighting",
+        description: "Add highlighting for JSON Path expression."
+      }
+    ]
+  },
+  {
     version: "1.1.0",
     date: "2026-02-24",
     entries: [

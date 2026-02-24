@@ -5,6 +5,43 @@ import JsonTreeNode from "@/components/json-tree-node"
 import JsonCodeEditor from "@/components/json-code-editor"
 import Seo from "@/components/seo"
 
+const jsonPathTokenRegex = /(\$)|(\.\.)|(\.)|(\[\*\])|(\[\d+\])|(\[(?:'[^']*'|"[^"]*")\])|(\*)|(@)|(\?)|(\(|\))|([A-Za-z_][\w-]*)/g
+
+function escapeHtml(input: string): string {
+  return input
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+}
+
+function getJsonPathTokenClass(token: string): string {
+  if (token === "$" || token === "@") return "text-indigo-600"
+  if (token === "." || token === "..") return "text-slate-400"
+  if (token === "*" || token === "[*]") return "text-violet-600"
+  if (token.startsWith("[") && token.endsWith("]")) return "text-amber-600"
+  if (token === "?" || token === "(" || token === ")") return "text-rose-600"
+  return "text-emerald-600"
+}
+
+function highlightJsonPath(input: string): string {
+  if (!input) return " "
+
+  let result = ""
+  let lastIndex = 0
+
+  for (const match of input.matchAll(jsonPathTokenRegex)) {
+    const token = match[0]
+    const index = match.index ?? 0
+
+    result += escapeHtml(input.slice(lastIndex, index))
+    result += `<span class="${getJsonPathTokenClass(token)}">${escapeHtml(token)}</span>`
+    lastIndex = index + token.length
+  }
+
+  result += escapeHtml(input.slice(lastIndex))
+  return result
+}
+
 /**
  * JSON Viewer page component that displays the JSON visualisation tool in DevLab.
  */
@@ -29,6 +66,7 @@ export default function JsonViewer() {
   const [query, setQuery] = useState<string>("$.staff_members[*].name")
   const [copiedCsv, setCopiedCsv] = useState(false)
   const [copiedRawJson, setCopiedRawJson] = useState(false)
+  const highlightedQuery = useMemo(() => highlightJsonPath(query), [query])
 
   const isPlainObject = (value: unknown): value is Record<string, unknown> => {
     return value !== null && typeof value === "object" && !Array.isArray(value)
@@ -147,17 +185,28 @@ export default function JsonViewer() {
               <span className="text-red-500 normal-case">{t("jsonViewer.invalidSyntax")}</span>
             )}
           </label>
-          <input
-            type="text"
-            className={`w-full p-3 font-mono text-sm border rounded-lg focus:ring-2 outline-none transition-all shadow-sm ${
+          <div
+            className={`relative w-full border rounded-lg transition-all shadow-sm ${
               result.queryError
-                ? "border-red-300 focus:ring-red-500 focus:border-red-500"
-                : "border-slate-200 focus:ring-indigo-500 focus:border-indigo-500"
+                ? "border-red-300 focus-within:ring-2 focus-within:ring-red-500 focus-within:border-red-500"
+                : "border-slate-200 focus-within:ring-2 focus-within:ring-indigo-500 focus-within:border-indigo-500"
             }`}
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-            placeholder={t("jsonViewer.placeholder")}
-          />
+          >
+            <pre
+              aria-hidden
+              className="m-0 p-3 font-mono text-sm leading-6 whitespace-pre overflow-hidden pointer-events-none"
+            >
+              <code dangerouslySetInnerHTML={{ __html: highlightedQuery }} />
+            </pre>
+            <input
+              type="text"
+              className="absolute inset-0 w-full h-full p-3 font-mono text-sm leading-6 bg-transparent text-transparent caret-slate-900 outline-none placeholder:text-slate-400"
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+              placeholder={t("jsonViewer.placeholder")}
+              spellCheck={false}
+            />
+          </div>
         </div>
       </div>
 
