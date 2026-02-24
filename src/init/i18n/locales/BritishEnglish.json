@@ -7,7 +7,12 @@
   "navigation": {
     "home": "Home",
     "about": "About",
-    "contact": "Contact"
+    "contact": "Contact",
+    "tools": "Tools",
+    "jsonProcessing": "JSON Processing",
+    "dailyTools": "Daily Tools",
+    "expandToolsMenu": "Expand tools menu",
+    "collapseToolsMenu": "Collapse tools menu"
   },
   "language": {
     "switch": "Switch Language",

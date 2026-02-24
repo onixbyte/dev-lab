@@ -2,6 +2,7 @@ import { ComponentType } from "react"
 import { createBrowserRouter } from "react-router-dom"
 import ErrorPage from "@/components/error-page"
 import HeroLayout from "@/layout/hero-layout"
+import ToolsLayout from "@/layout/tools-layout"
 
 function lazy<T extends { default: ComponentType<unknown> }>(importer: () => Promise<T>) {
   return async () => {
@@ -28,6 +29,21 @@ const router = createBrowserRouter(
           lazy: lazy(() => import("@/page/home")),
         },
         {
+          path: "about",
+          lazy: lazy(() => import("@/page/about")),
+        },
+        {
+          path: "contact",
+          lazy: lazy(() => import("@/page/contact")),
+        },
+      ],
+    },
+    {
+      path: "/",
+      element: <ToolsLayout />,
+      errorElement: <ErrorPage />,
+      children: [
+        {
           path: "json-viewer",
           lazy: lazy(() => import("@/page/json-viewer")),
         },
@@ -38,14 +54,6 @@ const router = createBrowserRouter(
         {
           path: "bmi-calculator",
           lazy: lazy(() => import("@/page/bmi-calculator")),
-        },
-        {
-          path: "about",
-          lazy: lazy(() => import("@/page/about")),
-        },
-        {
-          path: "contact",
-          lazy: lazy(() => import("@/page/contact")),
         },
       ],
     },

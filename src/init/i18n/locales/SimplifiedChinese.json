@@ -7,7 +7,12 @@
   "navigation": {
     "home": "首页",
     "about": "关于",
-    "contact": "联系"
+    "contact": "联系",
+    "tools": "工具",
+    "jsonProcessing": "JSON 处理",
+    "dailyTools": "日常小工具",
+    "expandToolsMenu": "展开工具菜单",
+    "collapseToolsMenu": "收起工具菜单"
   },
   "language": {
     "switch": "切换语言",
