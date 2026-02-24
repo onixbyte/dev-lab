@@ -18,10 +18,12 @@
     "title": "DevLab",
     "description": "一系列强大的、注重隐私的开发者工具集合。所有处理都在您的浏览器本地进行。",
     "getStarted": "开始使用",
-    "getStartedDescription": "使用我们直观的基于 JSONPath 的工具开始可视化和查询您的 JSON 数据。",
-    "openJsonViewer": "打开 JSON 查看器",
-    "openBmiCalculator": "打开 BMI 计算器",
+    "jsonViewerDescription": "使用我们直观的基于 JSONPath 的工具开始可视化和查询您的 JSON 数据。",
+    "jsonViewer": "JSON 查看器",
+    "bmiCalculator": "BMI 计算器",
+    "jsonGrid": "JSON Grid",
     "bmiCalculatorDescription": "计算您的身体质量指数（BMI）以评估您的体重状态和健康状况。根据您的 BMI 分类获得即时结果和个性化建议。",
+    "jsonGridDescription": "将 JSON 数组转换为清晰的表格视图，便于快速查看和对比。",
     "features": {
       "tools": {
         "title": "🛠️ 开发者工具",
@@ -47,6 +49,15 @@
     "copied": "已复制！",
     "copyAsCsv": "复制为 CSV",
     "error": "错误："
+  },
+  "jsonGrid": {
+    "jsonInput": "JSON 输入",
+    "tableResult": "表格结果",
+    "rows": "行",
+    "exportCsv": "导出 CSV",
+    "empty": "暂无可展示的数据。",
+    "parseError": "JSON 无效：",
+    "arrayOnlyError": "请输入 JSON 数组。"
   },
   "about": {
     "title": "关于 DevLab",

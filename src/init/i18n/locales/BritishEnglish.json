@@ -18,10 +18,12 @@
     "title": "DevLab",
     "description": "A collection of powerful, privacy-focused developer tools. All processing happens locally in your browser.",
     "getStarted": "Get Started",
-    "getStartedDescription": "Start visualising and querying your JSON data with our intuitive JSONPath-based tool.",
-    "openJsonViewer": "Open JSON Viewer",
-    "openBmiCalculator": "Open BMI Calculator",
+    "jsonViewerDescription": "Start visualising and querying your JSON data with our intuitive JSONPath-based tool.",
+    "jsonViewer": "JSON Viewer",
+    "bmiCalculator": "BMI Calculator",
+    "jsonGrid": "JSON Grid",
     "bmiCalculatorDescription": "Calculate your Body Mass Index (BMI) to assess your weight status and health. Get instant results with personalised advice based on your BMI category.",
+    "jsonGridDescription": "Convert JSON arrays into a clean table view for quick inspection and comparison.",
     "features": {
       "tools": {
         "title": "🛠️ Developer Tools",
@@ -47,6 +49,15 @@
     "copied": "Copied!",
     "copyAsCsv": "Copy as CSV",
     "error": "Error:"
+  },
+  "jsonGrid": {
+    "jsonInput": "JSON Input",
+    "tableResult": "Table Result",
+    "rows": "rows",
+    "exportCsv": "Export CSV",
+    "empty": "No data to display.",
+    "parseError": "Invalid JSON:",
+    "arrayOnlyError": "Please provide a JSON array."
   },
   "about": {
     "title": "About DevLab",
