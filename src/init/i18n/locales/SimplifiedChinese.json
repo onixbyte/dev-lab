@@ -24,7 +24,7 @@
       "description": "使用 JSONPath 可视化并查询 JSON 数据，筛选结果并导出 CSV，全程在浏览器本地完成。"
     },
     "jsonGrid": {
-      "title": "json-grid - JSON 数组转表格",
+      "title": "JSON Grid - JSON 数组转表格",
       "description": "将 JSON 数组转换为清晰的表格视图并导出 CSV，所有处理均在本地完成。"
     },
     "bmi": {

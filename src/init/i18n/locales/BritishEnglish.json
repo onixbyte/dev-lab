@@ -24,7 +24,7 @@
       "description": "Visualise JSON and query data using JSONPath. Inspect structures, filter results, and export CSV locally in your browser."
     },
     "jsonGrid": {
-      "title": "json-grid - JSON Array to Table",
+      "title": "JSON Grid - JSON Array to Table",
       "description": "Convert JSON arrays into a clean, sortable table view and export as CSV. All processing happens locally."
     },
     "bmi": {
