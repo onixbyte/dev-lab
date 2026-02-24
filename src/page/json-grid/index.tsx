@@ -1,5 +1,6 @@
 import { useCallback, useMemo, useState } from "react"
 import { useTranslation } from "react-i18next"
+import JsonCodeEditor from "@/components/json-code-editor"
 
 type RowRecord = Record<string, unknown>
 
@@ -84,12 +85,7 @@ export default function JsonGrid() {
             {t("jsonGrid.jsonInput")}
           </span>
         </div>
-        <textarea
-          className="flex-1 w-full p-4 font-mono text-sm outline-none focus:ring-2 focus:ring-indigo-500/20 transition-all resize-none overflow-auto"
-          value={jsonInput}
-          onChange={(e) => setJsonInput(e.target.value)}
-          spellCheck={false}
-        />
+        <JsonCodeEditor value={jsonInput} onChange={setJsonInput} />
       </div>
 
       <div className="w-[65%] bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden flex flex-col min-h-0">
