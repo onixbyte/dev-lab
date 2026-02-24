@@ -19,7 +19,7 @@ export default function JsonGrid() {
       const parsed = JSON.parse(jsonInput)
 
       if (!Array.isArray(parsed)) {
-        return { rows: [] as RowRecord[], columns: [] as string[], error: t("jsonTable.arrayOnlyError") }
+        return { rows: [] as RowRecord[], columns: [] as string[], error: t("jsonGrid.arrayOnlyError") }
       }
 
       const rows: RowRecord[] = parsed.map((item) => {
@@ -36,7 +36,7 @@ export default function JsonGrid() {
       return {
         rows: [] as RowRecord[],
         columns: [] as string[],
-        error: `${t("jsonTable.parseError")} ${(e as Error).message}`,
+        error: `${t("jsonGrid.parseError")} ${(e as Error).message}`,
       }
     }
   }, [jsonInput, t])
@@ -81,7 +81,7 @@ export default function JsonGrid() {
       <div className="w-[35%] bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden flex flex-col min-h-0">
         <div className="bg-slate-50 px-4 py-2 border-b border-slate-200 shrink-0">
           <span className="text-xs font-semibold uppercase tracking-wider text-slate-500">
-            {t("jsonTable.jsonInput")}
+            {t("jsonGrid.jsonInput")}
           </span>
         </div>
         <textarea
@@ -95,18 +95,18 @@ export default function JsonGrid() {
       <div className="w-[65%] bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden flex flex-col min-h-0">
         <div className="bg-slate-50 px-4 py-2 border-b border-slate-200 flex justify-between items-center shrink-0">
           <span className="text-xs font-semibold uppercase tracking-wider text-slate-500">
-            {t("jsonTable.tableResult")}
+            {t("jsonGrid.tableResult")}
           </span>
           <div className="flex items-center gap-2">
             <span className="text-xs font-medium px-2 py-0.5 bg-indigo-100 text-indigo-700 rounded-full">
-              {result.rows.length} {t("jsonTable.rows")}
+              {result.rows.length} {t("jsonGrid.rows")}
             </span>
             <button
               onClick={exportCsv}
               disabled={!!result.error || result.rows.length === 0 || result.columns.length === 0}
               className="text-xs font-medium px-3 py-1 bg-emerald-500 text-white rounded-lg hover:bg-emerald-600 disabled:bg-slate-300 disabled:cursor-not-allowed transition-colours"
             >
-              {t("jsonTable.exportCsv")}
+              {t("jsonGrid.exportCsv")}
             </button>
           </div>
         </div>
@@ -117,7 +117,7 @@ export default function JsonGrid() {
               {result.error}
             </div>
           ) : result.rows.length === 0 ? (
-            <div className="text-slate-500 text-sm">{t("jsonTable.empty")}</div>
+            <div className="text-slate-500 text-sm">{t("jsonGrid.empty")}</div>
           ) : (
             <table className="w-full border-collapse text-sm">
               <thead>
