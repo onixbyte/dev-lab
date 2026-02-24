@@ -15,6 +15,7 @@ export default function JsonViewer() {
     location: "London",
     is_active: true,
     staff_members: [
+      { id: 100, name: "TTY", roles: ["CEO"] },
       { id: 101, name: "Alice", roles: ["Admin", "Manager"] },
       { id: 102, name: "Bob", roles: ["Developer"] },
     ],
@@ -39,7 +40,13 @@ export default function JsonViewer() {
     try {
       parsed = JSON.parse(jsonInput)
     } catch (e) {
-      return { parsed: null, matchedPaths: [], matchedValues: [], error: (e as Error).message, queryError: null }
+      return {
+        parsed: null,
+        matchedPaths: [],
+        matchedValues: [],
+        error: (e as Error).message,
+        queryError: null,
+      }
     }
 
     try {
@@ -53,7 +60,13 @@ export default function JsonViewer() {
       }
     } catch (e) {
       // When JSONPath expression is invalid, still display the JSON tree but with no matches
-      return { parsed, matchedPaths: [], matchedValues: [], error: null, queryError: (e as Error).message }
+      return {
+        parsed,
+        matchedPaths: [],
+        matchedValues: [],
+        error: null,
+        queryError: (e as Error).message,
+      }
     }
   }, [jsonInput, query])
 
@@ -70,20 +83,23 @@ export default function JsonViewer() {
     }
 
     const objectMatches = result.matchedValues.filter(isPlainObject)
-    const isObjectTable = objectMatches.length > 0 && objectMatches.length === result.matchedValues.length
+    const isObjectTable =
+      objectMatches.length > 0 && objectMatches.length === result.matchedValues.length
 
     const csv = isObjectTable
       ? (() => {
-        const columns = Array.from(new Set(objectMatches.flatMap((item) => Object.keys(item))))
-        const headerRow = columns.map(escapeCsvValue).join(",")
-        const valueRows = objectMatches.map((item) => columns.map((column) => escapeCsvValue(item[column])).join(","))
-        return [headerRow, ...valueRows].join("\n")
-      })()
+          const columns = Array.from(new Set(objectMatches.flatMap((item) => Object.keys(item))))
+          const headerRow = columns.map(escapeCsvValue).join(",")
+          const valueRows = objectMatches.map((item) =>
+            columns.map((column) => escapeCsvValue(item[column])).join(",")
+          )
+          return [headerRow, ...valueRows].join("\n")
+        })()
       : (() => {
-        const header = query
-        const rows = result.matchedValues.map(escapeCsvValue)
-        return [header, ...rows].join("\n")
-      })()
+          const header = query
+          const rows = result.matchedValues.map(escapeCsvValue)
+          return [header, ...rows].join("\n")
+        })()
 
     navigator.clipboard.writeText(csv).then(() => {
       setCopiedCsv(true)
@@ -94,7 +110,8 @@ export default function JsonViewer() {
   const copySelectedRawJson = useCallback(() => {
     if (result.matchedValues.length === 0) return
 
-    const payload = result.matchedValues.length === 1 ? result.matchedValues[0] : result.matchedValues
+    const payload =
+      result.matchedValues.length === 1 ? result.matchedValues[0] : result.matchedValues
     const json = JSON.stringify(payload, null, 2)
 
     navigator.clipboard.writeText(json).then(() => {
@@ -157,15 +174,13 @@ export default function JsonViewer() {
             <button
               onClick={copySelectedRawJson}
               disabled={result.matchedValues.length === 0 || !!result.error}
-              className="text-xs font-medium px-3 py-1 bg-indigo-500 text-white rounded-lg hover:bg-indigo-600 disabled:bg-slate-300 disabled:cursor-not-allowed transition-colours"
-            >
+              className="text-xs font-medium px-3 py-1 bg-indigo-500 text-white rounded-lg hover:bg-indigo-600 disabled:bg-slate-300 disabled:cursor-not-allowed transition-colours">
               {copiedRawJson ? t("jsonViewer.copied") : t("jsonViewer.copyRawJson")}
             </button>
             <button
               onClick={copyAsCsv}
               disabled={result.matchedValues.length === 0 || !!result.error}
-              className="text-xs font-medium px-3 py-1 bg-emerald-500 text-white rounded-lg hover:bg-emerald-600 disabled:bg-slate-300 disabled:cursor-not-allowed transition-colours"
-            >
+              className="text-xs font-medium px-3 py-1 bg-emerald-500 text-white rounded-lg hover:bg-emerald-600 disabled:bg-slate-300 disabled:cursor-not-allowed transition-colours">
               {copiedCsv ? t("jsonViewer.copied") : t("jsonViewer.copyAsCsv")}
             </button>
           </div>
@@ -178,11 +193,7 @@ export default function JsonViewer() {
             </div>
           )}
           {result.parsed && (
-            <JsonTreeNode
-              data={result.parsed}
-              path={["$"]}
-              matchedPaths={result.matchedPaths}
-            />
+            <JsonTreeNode data={result.parsed} path={["$"]} matchedPaths={result.matchedPaths} />
           )}
         </div>
       </div>
