@@ -43,6 +43,12 @@ export default function HeroLayout() {
                 >
                   {t("navigation.contact")}
                 </Link>
+                <Link
+                  to="/changelog"
+                  className="text-gray-500 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium"
+                >
+                  {t("navigation.changelog")}
+                </Link>
               </nav>
               <LanguageSwitcher />
             </div>

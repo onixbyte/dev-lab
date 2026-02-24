@@ -8,6 +8,7 @@
     "home": "Home",
     "about": "About",
     "contact": "Contact",
+    "changelog": "Changelog",
     "tools": "Tools",
     "jsonProcessing": "JSON Processing",
     "dailyTools": "Daily Tools",
@@ -43,6 +44,10 @@
     "contact": {
       "title": "Contact DevLab",
       "description": "Get in touch via GitHub Issues for support, bug reports, or feature requests."
+    },
+    "changelog": {
+      "title": "Changelog",
+      "description": "A complete history of updates and improvements to DevLab."
     }
   },
   "home": {
@@ -170,5 +175,13 @@
     "scale": {
       "title": "BMI Categories"
     }
+  },
+  "changelog": {
+    "title": "Changelog",
+    "description": "All notable changes to DevLab are documented here.",
+    "featureType": "Feature",
+    "fixType": "Fix",
+    "refactorType": "Refactor",
+    "choreType": "Chore"
   }
 }

@@ -8,6 +8,7 @@
     "home": "首页",
     "about": "关于",
     "contact": "联系",
+    "changelog": "更新日志",
     "tools": "工具",
     "jsonProcessing": "JSON 处理",
     "dailyTools": "日常小工具",
@@ -43,6 +44,10 @@
     "contact": {
       "title": "联系 DevLab",
       "description": "通过 GitHub Issues 反馈问题或提交功能需求。"
+    },
+    "changelog": {
+      "title": "更新日志",
+      "description": "DevLab 完整的更新和改进历史记录。"
     }
   },
   "home": {
@@ -170,5 +175,13 @@
     "scale": {
       "title": "BMI 分类"
     }
+  },
+  "changelog": {
+    "title": "更新日志",
+    "description": "DevLab 所有值得关注的变更都记录在此。",
+    "featureType": "功能",
+    "fixType": "修复",
+    "refactorType": "重构",
+    "choreType": "维护"
   }
 }

@@ -38,21 +38,23 @@ export default function ToolsLayout() {
               <nav className="flex space-x-8">
                 <Link
                   to="/"
-                  className="text-gray-500 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium"
-                >
+                  className="text-gray-500 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">
                   {t("navigation.home")}
                 </Link>
                 <Link
                   to="/about"
-                  className="text-gray-500 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium"
-                >
+                  className="text-gray-500 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">
                   {t("navigation.about")}
                 </Link>
                 <Link
                   to="/contact"
-                  className="text-gray-500 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium"
-                >
+                  className="text-gray-500 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">
                   {t("navigation.contact")}
+                </Link>
+                <Link
+                  to="/changelog"
+                  className="text-gray-500 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">
+                  {t("navigation.changelog")}
                 </Link>
               </nav>
               <LanguageSwitcher />
@@ -66,8 +68,7 @@ export default function ToolsLayout() {
           <aside
             className={`bg-white rounded-xl shadow-sm border border-slate-200 flex flex-col transition-all duration-200 ${
               collapsed ? "w-16" : "w-56"
-            }`}
-          >
+            }`}>
             <div className="px-3 py-3 border-b border-slate-200 flex items-center justify-between">
               {!collapsed && (
                 <span className="text-xs font-semibold uppercase tracking-wider text-slate-500">
@@ -80,8 +81,7 @@ export default function ToolsLayout() {
                 className="w-8 h-8 rounded-md border border-slate-200 text-slate-600 hover:bg-slate-50 transition-colours text-sm"
                 aria-label={
                   collapsed ? t("navigation.expandToolsMenu") : t("navigation.collapseToolsMenu")
-                }
-              >
+                }>
                 {collapsed ? "»" : "«"}
               </button>
             </div>
@@ -105,8 +105,7 @@ export default function ToolsLayout() {
                             : "text-slate-600 hover:bg-slate-100 hover:text-slate-900"
                         }`
                       }
-                      title={collapsed ? `${group.title} · ${tool.label}` : tool.label}
-                    >
+                      title={collapsed ? `${group.title} · ${tool.label}` : tool.label}>
                       {collapsed ? tool.shortLabel : tool.label}
                     </NavLink>
                   ))}
