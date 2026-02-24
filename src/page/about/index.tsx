@@ -1,4 +1,5 @@
 import { useTranslation } from "react-i18next"
+import Seo from "@/components/seo"
 
 /**
  * About page component that displays information about the DevLab application.
@@ -8,6 +9,11 @@ export default function About() {
 
   return (
     <div className="space-y-8 max-w-6xl mx-auto">
+      <Seo
+        title={t("seo.about.title")}
+        description={t("seo.about.description")}
+        path="/about"
+      />
       {/* Page Header */}
       <div className="text-center">
         <h1 className="text-3xl font-bold text-gray-900 sm:text-4xl">{t("about.title")}</h1>

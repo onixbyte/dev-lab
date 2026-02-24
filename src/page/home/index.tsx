@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom"
 import { useTranslation } from "react-i18next"
+import Seo from "@/components/seo"
 
 /**
  * Home page component that displays the main landing content.
@@ -9,6 +10,11 @@ export default function Home() {
 
   return (
     <div className="space-y-8 max-w-6xl mx-auto">
+      <Seo
+        title={t("seo.home.title")}
+        description={t("seo.home.description")}
+        path="/"
+      />
       {/* Page Header */}
       <div className="text-center">
         <h1 className="text-3xl font-bold text-gray-900 sm:text-4xl">{t("home.title")}</h1>

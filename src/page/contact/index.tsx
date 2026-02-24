@@ -1,5 +1,6 @@
 import React from "react"
 import { useTranslation } from "react-i18next"
+import Seo from "@/components/seo"
 
 /**
  * Contact page component that encourages manual GitHub Issue submission.
@@ -38,6 +39,11 @@ ${message}
 
   return (
     <div className="max-w-5xl mx-auto py-12 px-4 sm:px-6">
+      <Seo
+        title={t("seo.contact.title")}
+        description={t("seo.contact.description")}
+        path="/contact"
+      />
       {/* Header */}
       <div className="text-center mb-12">
         <h1 className="text-3xl font-bold text-gray-900 sm:text-4xl">{t("contact.title")}</h1>

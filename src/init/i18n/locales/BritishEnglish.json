@@ -14,6 +14,32 @@
     "english": "English (Great Britain)",
     "chinese": "简体中文"
   },
+  "seo": {
+    "home": {
+      "title": "DevLab - Free Developer Tools",
+      "description": "A collection of powerful, privacy-focused developer tools. JSON Viewer with JSONPath queries, JSON Grid, BMI Calculator, and more."
+    },
+    "jsonViewer": {
+      "title": "JSON Viewer - JSONPath Queries",
+      "description": "Visualise JSON and query data using JSONPath. Inspect structures, filter results, and export CSV locally in your browser."
+    },
+    "jsonGrid": {
+      "title": "json-grid - JSON Array to Table",
+      "description": "Convert JSON arrays into a clean, sortable table view and export as CSV. All processing happens locally."
+    },
+    "bmi": {
+      "title": "BMI Calculator - Instant Results",
+      "description": "Calculate your Body Mass Index (BMI) with instant feedback and category guidance."
+    },
+    "about": {
+      "title": "About DevLab",
+      "description": "Learn about DevLab, an open source, privacy-focused toolkit for developers."
+    },
+    "contact": {
+      "title": "Contact DevLab",
+      "description": "Get in touch via GitHub Issues for support, bug reports, or feature requests."
+    }
+  },
   "home": {
     "title": "DevLab",
     "description": "A collection of powerful, privacy-focused developer tools. All processing happens locally in your browser.",

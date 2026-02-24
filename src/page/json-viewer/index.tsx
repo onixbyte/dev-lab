@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next"
 import jp from "jsonpath"
 import JsonTreeNode from "@/components/json-tree-node"
 import JsonCodeEditor from "@/components/json-code-editor"
+import Seo from "@/components/seo"
 
 /**
  * JSON Viewer page component that displays the JSON visualisation tool in DevLab.
@@ -91,6 +92,11 @@ export default function JsonViewer() {
 
   return (
     <div className="h-full flex gap-4 overflow-hidden">
+      <Seo
+        title={t("seo.jsonViewer.title")}
+        description={t("seo.jsonViewer.description")}
+        path="/json-viewer"
+      />
       {/* Left panel - 30% */}
       <div className="w-[30%] flex flex-col gap-4 min-h-0">
         {/* JSON Source - fills remaining height */}
