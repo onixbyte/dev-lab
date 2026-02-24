@@ -26,7 +26,8 @@ export default function JsonViewer() {
 
   const [jsonInput, setJsonInput] = useState<string>(JSON.stringify(initialData, null, 2))
   const [query, setQuery] = useState<string>("$.staff_members[*].name")
-  const [copied, setCopied] = useState(false)
+  const [copiedCsv, setCopiedCsv] = useState(false)
+  const [copiedRawJson, setCopiedRawJson] = useState(false)
 
   const isPlainObject = (value: unknown): value is Record<string, unknown> => {
     return value !== null && typeof value === "object" && !Array.isArray(value)
@@ -85,10 +86,22 @@ export default function JsonViewer() {
       })()
 
     navigator.clipboard.writeText(csv).then(() => {
-      setCopied(true)
-      setTimeout(() => setCopied(false), 2000)
+      setCopiedCsv(true)
+      setTimeout(() => setCopiedCsv(false), 2000)
     })
   }, [query, result.matchedValues])
+
+  const copySelectedRawJson = useCallback(() => {
+    if (result.matchedValues.length === 0) return
+
+    const payload = result.matchedValues.length === 1 ? result.matchedValues[0] : result.matchedValues
+    const json = JSON.stringify(payload, null, 2)
+
+    navigator.clipboard.writeText(json).then(() => {
+      setCopiedRawJson(true)
+      setTimeout(() => setCopiedRawJson(false), 2000)
+    })
+  }, [result.matchedValues])
 
   return (
     <div className="h-full flex gap-4 overflow-hidden">
@@ -142,11 +155,18 @@ export default function JsonViewer() {
               {result.matchedPaths.length} {t("jsonViewer.matches")}
             </span>
             <button
+              onClick={copySelectedRawJson}
+              disabled={result.matchedValues.length === 0 || !!result.error}
+              className="text-xs font-medium px-3 py-1 bg-indigo-500 text-white rounded-lg hover:bg-indigo-600 disabled:bg-slate-300 disabled:cursor-not-allowed transition-colours"
+            >
+              {copiedRawJson ? t("jsonViewer.copied") : t("jsonViewer.copyRawJson")}
+            </button>
+            <button
               onClick={copyAsCsv}
               disabled={result.matchedValues.length === 0 || !!result.error}
               className="text-xs font-medium px-3 py-1 bg-emerald-500 text-white rounded-lg hover:bg-emerald-600 disabled:bg-slate-300 disabled:cursor-not-allowed transition-colours"
             >
-              {copied ? t("jsonViewer.copied") : t("jsonViewer.copyAsCsv")}
+              {copiedCsv ? t("jsonViewer.copied") : t("jsonViewer.copyAsCsv")}
             </button>
           </div>
         </div>

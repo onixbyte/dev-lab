@@ -73,6 +73,7 @@
     "visualisedResult": "Visualised Result",
     "matches": "matches",
     "copied": "Copied!",
+    "copyRawJson": "Copy selected JSON",
     "copyAsCsv": "Copy as CSV",
     "error": "Error:"
   },

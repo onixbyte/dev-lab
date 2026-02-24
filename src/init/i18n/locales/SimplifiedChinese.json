@@ -73,6 +73,7 @@
     "visualisedResult": "可视化结果",
     "matches": "个匹配",
     "copied": "已复制！",
+    "copyRawJson": "复制选中 JSON",
     "copyAsCsv": "复制为 CSV",
     "error": "错误："
   },
