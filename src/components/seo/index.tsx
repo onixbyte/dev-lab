@@ -7,7 +7,7 @@ type SeoProps = {
   path: string
 }
 
-const SITE_URL = "https://dev-lab.onixbyte.dev"
+const SITE_URL = import.meta.env.VITE_SEO_SITE_URL
 const DEFAULT_IMAGE = `${SITE_URL}/onixbyte.svg`
 
 function setMetaTag(selector: string, attr: string, value: string) {
