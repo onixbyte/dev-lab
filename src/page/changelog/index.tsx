@@ -2,8 +2,10 @@ import { useMemo } from "react"
 import { useTranslation } from "react-i18next"
 import Seo from "@/components/seo"
 
+type ChangeTypeKey = "feat" | "fix" | "refactor" | "chore"
+
 interface ChangeEntry {
-  type: "feat" | "fix" | "refactor" | "chore"
+  type: ChangeTypeKey
   title: string
   description?: string
   date?: string
@@ -80,8 +82,6 @@ const CHANGELOG_DATA: ChangelogVersion[] = [
     ],
   },
 ]
-
-type ChangeTypeKey = "feat" | "fix" | "refactor" | "chore"
 
 export default function Changelog() {
   const { t } = useTranslation()
