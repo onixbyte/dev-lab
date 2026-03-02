@@ -52,7 +52,6 @@ export default function JsonViewer() {
     location: "London",
     is_active: true,
     staff_members: [
-      { id: 100, name: "TTY", roles: ["CEO"] },
       { id: 101, name: "Alice", roles: ["Admin", "Manager"] },
       { id: 102, name: "Bob", roles: ["Developer"] },
     ],

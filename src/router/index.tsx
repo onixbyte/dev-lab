@@ -35,11 +35,7 @@ const router = createBrowserRouter(
         {
           path: "contact",
           lazy: lazy(() => import("@/page/contact")),
-        },
-        {
-          path: "changelog",
-          lazy: lazy(() => import("@/page/changelog")),
-        },
+        }
       ],
     },
     {

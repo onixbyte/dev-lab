@@ -1,6 +1,6 @@
 /// <reference types="vite/client" />
 interface ImportMetaEnv {
-  // todo add env properties here
+  readonly VITE_SEO_SITE_URL: string
 }
 
 interface ImportMeta {

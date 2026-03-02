@@ -9,7 +9,6 @@ export default function JsonGrid() {
   const { t } = useTranslation()
 
   const initialData = [
-    { id: 0, name: "TTY", role: "CEO", active: true },
     { id: 1, name: "Alice", role: "Developer", active: true },
     { id: 2, name: "Bob", role: "Designer", active: false },
     { id: 3, name: "Charlie", role: "Product Manager", active: true },
